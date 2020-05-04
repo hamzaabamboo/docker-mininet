@@ -5,7 +5,7 @@ WORKDIR /root
 
 COPY ENTRYPOINT.sh /
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt update && apt install -y --no-install-recommends \
     curl \
     iproute2 \
     iputils-ping \
@@ -16,9 +16,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tcpdump \
     vim \
     x11-xserver-utils \
+    wireshark \
     xterm \
+    python3-pip \
  && rm -rf /var/lib/apt/lists/* \
  && chmod +x /ENTRYPOINT.sh
+
+# RUN pip3 install mininet
 
 EXPOSE 6633 6653 6640
 
